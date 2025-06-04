@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Video Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ...existing code... -->
+        <h1>
+            <span class="tiktok-logo">
+                <img src="img/logo.png" alt="TikTok Logo" width="36" height="36" style="vertical-align: middle;">
+            </span>
+            TikTok Video Downloader
+        </h1>
+<!-- ...existing code... -->
+        <p class="subtitle">Situs ini merupakan hobby project dan masih dalam pengembangan</p>
+        <form id="download-form" autocomplete="off">
+            <input type="url" id="tiktok-url" placeholder="Tempelkan URL video TikTok di sini..." required>
+            <button type="submit">Download</button>
+        </form>
+        <!-- ...existing code... -->
+        <div id="result"></div>
+        <div id="loading-bar" style="display:none;">
+            <div class="bar"></div>
+        </div>
+        <footer>
+            <p>Made with <span class="heart">❤</span> by <b>Taufik Nur Ramadhan</b></p>
+        </footer>
+        <!-- ...existing code... -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
