@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const formData = new FormData();
         formData.append("url", url);
 
-        // Ganti URL fetch ke backend PythonAnywhere
         fetch("https://taufiknetwork.pythonanywhere.com/download", {
             method: "POST",
             body: formData
