@@ -19,13 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const formData = new FormData();
         formData.append("url", url);
 
-        fetch("http://localhost:5000/download", {
+        // Ganti URL fetch ke backend PythonAnywhere
+        fetch("https://taufiknetwork.pythonanywhere.com/download", {
             method: "POST",
             body: formData
         })
         .then(async response => {
             loadingBar.style.display = "none";
-            if (response.ok && response.headers.get("Content-Type").includes("video/mp4")) {
+            if (response.ok && response.headers.get("Content-Type") && response.headers.get("Content-Type").includes("video/mp4")) {
                 const blob = await response.blob();
                 const downloadUrl = window.URL.createObjectURL(blob);
                 const a = document.createElement("a");
@@ -37,7 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.URL.revokeObjectURL(downloadUrl);
                 resultDiv.textContent = "Berhasil! File sedang diunduh.";
             } else {
-                const data = await response.json();
+                let data = {};
+                try {
+                    data = await response.json();
+                } catch {
+                    data.error = "Gagal mengunduh video.";
+                }
                 resultDiv.textContent = data.error || "Gagal mengunduh video.";
             }
         })
